@@ -1,0 +1,19 @@
+
+nsquid:S4144€"VUpdate this method so that its implementation is not identical to "update" on line 92.(Ž‚§¯
+ksquid:S2095f"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(µÈþ²üÿÿÿÿ
+lsquid:S2095Š"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(µÈþ²üÿÿÿÿ
+dsquid:S2095"HUse try-with-resources or close this "Connection" in a "finally" clause.(äÁîáùÿÿÿÿ
+dsquid:S2095^"HUse try-with-resources or close this "Connection" in a "finally" clause.(äÁîáùÿÿÿÿ
+^squid:S2095;"GUse try-with-resources or close this "ResultSet" in a "finally" clause.(ò¡¥¹
+ksquid:S2095#"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(µÈþ²üÿÿÿÿ
+esquid:S2095‚"HUse try-with-resources or close this "Connection" in a "finally" clause.(äÁîáùÿÿÿÿ
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÄÁþ‰üÿÿÿÿ
+gsquid:CommentedOutCodeLine`"<This block of commented-out lines of code should be removed.(Ê«–úüÿÿÿÿ
+csquid:CommentedOutCodeLine„"<This block of commented-out lines of code should be removed.(‹Þ™Û
+{squid:S1488¦"^Immediately return this expression instead of assigning it to the temporary variable "aClass".(œ´€îýÿÿÿÿ
+xsquid:S1488½"`Immediately return this expression instead of assigning it to the temporary variable "boundSql".(ÍòïÚ
+isquid:S2259C"MA "NullPointerException" could be thrown; "resultTypeClass" is nullable here.(ð´Æ·ÿÿÿÿÿ
+lsquid:S2259—"OA "NullPointerException" could be thrown; "paramtertypeClass" is nullable here.(Ûð”åøÿÿÿÿ
+ksquid:S22590"OA "NullPointerException" could be thrown; "paramtertypeClass" is nullable here.(Ûð”åøÿÿÿÿ
+ksquid:S2259s"OA "NullPointerException" could be thrown; "paramtertypeClass" is nullable here.(Ûð”åøÿÿÿÿ
+rsquid:S00120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ïä¤Ž

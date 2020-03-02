@@ -6,10 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="IPersistence_test" />
+        <module name="IPersistence (2)" />
         <module name="IPersistence" />
+        <module name="IPersistence_test" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="11" />
+    <bytecodeTargetLevel target="11">
+      <module name="IPersistence (1)" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

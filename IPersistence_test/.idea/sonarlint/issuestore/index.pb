@@ -7,17 +7,3 @@ V
 pom.xml,4/4/442292b8a7efeabbe4cc176709b833b1792140ec
 b
 2src/main/java/com/lagou/test/IPersistenceTest.java,f/4/f4a5ea11b94550321d5d366061854f9d360902ab
-\
-,src/main/java/com/lagou/config/BoundSql.java,a/8/a8b5dad847f8cf39134f799341e45480673f627f
-d
-4src/main/java/com/lagou/config/XMLMapperBuilder.java,d/f/df339cff9a438959f531f66abbd021524455ee58
-_
-/src/main/java/com/lagou/pojo/Configuration.java,0/d/0d4b0ef119a2bc45b8dbe6f626332b039584e7d1
-f
-6src/main/java/com/lagou/sqlSession/SimpleExecutor.java,7/b/7ba6fdae8f07adf325bdca4b26f0827f2c2ffc7a
-Y
-)src/main/java/com/lagou/io/Resources.java,1/d/1dca16d8425ce8a8c0002fdfd5d7f2e20ca3e3ec
-d
-4src/main/java/com/lagou/config/XMLConfigBuilder.java,9/8/983a424f4eb5ab8abed50d86f12255580ca61732
-i
-9src/main/java/com/lagou/sqlSession/DefaultSqlSession.java,3/3/3344a22ba7ba8ca48fdf0093aae582aeea6e748f

@@ -5,7 +5,9 @@ import com.lagou.pojo.MappedStatement;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
+import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Proxy;
+import java.lang.reflect.Type;
 import java.util.List;
 
 public class DefaultSqlSession implements SqlSession {
@@ -40,18 +42,18 @@ public class DefaultSqlSession implements SqlSession {
     }
 
     @Override
-    public int update(String statementid, Object param) throws Exception {
+    public int update(String statementid, Object... params) throws Exception {
         SimpleExecutor simpleExecutor = new SimpleExecutor();
         MappedStatement mappedStatement = configuration.getMappedStatementMap().get(statementid);
-        int rows = simpleExecutor.update(configuration, mappedStatement, param);
+        int rows = simpleExecutor.update(configuration, mappedStatement, params);
         return rows;
     }
 
     @Override
-    public int delete(String statementid, Object param) throws Exception {
+    public int delete(String statementid, Object... params) throws Exception {
         SimpleExecutor simpleExecutor = new SimpleExecutor();
         MappedStatement mappedStatement = configuration.getMappedStatementMap().get(statementid);
-        int rows = simpleExecutor.delete(configuration, mappedStatement, param);
+        int rows = simpleExecutor.delete(configuration, mappedStatement, params);
         return rows;
     }
 
@@ -74,23 +76,18 @@ public class DefaultSqlSession implements SqlSession {
 
                         // 准备参数2：params:args
                         // 获取被调用方法的返回值类型
-//                        Type genericReturnType = method.getGenericReturnType();
-                        // 判断是否进行了 泛型类型参数化
-//                        if (genericReturnType instanceof ParameterizedType) {
-//                            List<Object> objects = selectList(statementId, args);
-//                            return objects;
-//                        }
-//
-//                        return selectOne(statementId, args);
+                        Type genericReturnType = method.getGenericReturnType();
+//                         判断是否进行了 泛型类型参数化
+                        if (genericReturnType instanceof ParameterizedType) {
+                            List<Object> objects = selectList(statementId, args);
+                            return objects;
+                        }
+
                         switch (methodName) {
-                            case "findAll":
-                                return selectList(statementId, args);
                             case "findByCondition":
                                 return selectOne(statementId, args);
                             case "update":
                                 return update(statementId, args);
-                            case "delete":
-                                return delete(statementId, args);
 
                         }
                         return null;
@@ -99,6 +96,7 @@ public class DefaultSqlSession implements SqlSession {
 
         return (T) proxyInstance;
     }
+
 
 
 }

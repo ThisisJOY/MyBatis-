@@ -11,10 +11,10 @@ public interface SqlSession {
     public <T> T selectOne(String statementid, Object... params) throws Exception;
 
     //修改
-    public int update(String statementid, Object param) throws Exception;
+    public int update(String statementid, Object... params) throws Exception;
 
     //删除
-    public int delete(String statementid, Object param) throws Exception;
+    public int delete(String statementid, Object... params) throws Exception;
 
     //为Dao接口生成代理实现类
     public <T> T getMapper(Class<?> mapperClass);

@@ -89,7 +89,7 @@ public class SimpleExecutor implements Executor {
     }
 
     @Override
-    public int update(Configuration configuration, MappedStatement mappedStatement, Object parameter) throws Exception {
+    public int update(Configuration configuration, MappedStatement mappedStatement, Object... params) throws Exception {
         // 1. 注册驱动，获取连接
         Connection connection = configuration.getDataSource().getConnection();
 
@@ -103,8 +103,8 @@ public class SimpleExecutor implements Executor {
 
         // 4. 设置参数
         //获取到了参数的全路径
-        String paramterType = mappedStatement.getParameterType();
-        Class<?> paramtertypeClass = getClassType(paramterType);
+        String parameterType = mappedStatement.getParameterType();
+        Class<?> paramtertypeClass = getClassType(parameterType);
 
         List<ParameterMapping> parameterMappingList = boundSql.getParameterMappingList();
         for (int i = 0; i < parameterMappingList.size(); i++) {
@@ -115,9 +115,8 @@ public class SimpleExecutor implements Executor {
             Field declaredField = paramtertypeClass.getDeclaredField(content);
             //暴力访问
             declaredField.setAccessible(true);
-            Object o = declaredField.get(parameter);
+            Object o = declaredField.get(params[0]);
             preparedStatement.setObject(i + 1, o);
-
         }
 
         // 5. 执行sql
@@ -125,7 +124,7 @@ public class SimpleExecutor implements Executor {
         return preparedStatement.getUpdateCount();
     }
 
-    public int delete(Configuration configuration, MappedStatement mappedStatement, Object parameter) throws Exception {
+    public int delete(Configuration configuration, MappedStatement mappedStatement, Object... params) throws Exception {
         // 1. 注册驱动，获取连接
         Connection connection = configuration.getDataSource().getConnection();
 
@@ -139,8 +138,8 @@ public class SimpleExecutor implements Executor {
 
         // 4. 设置参数
         //获取到了参数的全路径
-        String paramterType = mappedStatement.getParameterType();
-        Class<?> paramtertypeClass = getClassType(paramterType);
+        String parameterType = mappedStatement.getParameterType();
+        Class<?> parametertypeClass = getClassType(parameterType);
 
         List<ParameterMapping> parameterMappingList = boundSql.getParameterMappingList();
         for (int i = 0; i < parameterMappingList.size(); i++) {
@@ -148,11 +147,10 @@ public class SimpleExecutor implements Executor {
             String content = parameterMapping.getContent();
 
             //反射
-            Field declaredField = paramtertypeClass.getDeclaredField(content);
+            Field declaredField = parametertypeClass.getDeclaredField(content);
             //暴力访问
             declaredField.setAccessible(true);
-            Object o = declaredField.get(parameter);
-
+            Object o = declaredField.get(params[0]);
             preparedStatement.setObject(i + 1, o);
 
         }

@@ -9,6 +9,7 @@ import com.lagou.sqlSession.SqlSessionFactoryBuilder;
 import org.junit.Test;
 
 import java.io.InputStream;
+import java.util.List;
 
 public class IPersistenceTest {
 
@@ -33,19 +34,16 @@ public class IPersistenceTest {
 
         IUserDao userDao = sqlSession.getMapper(IUserDao.class);
 
-//        List<User> all = userDao.findAll();
-//        for (User user1 : all) {
-//            System.out.println(user1);
-//        }
+        List<User> all = userDao.findAll();
+        for (User user1 : all) {
+            System.out.println(user1);
+        }
 
         User userUpdate = new User();
         userUpdate.setId(1);
         userUpdate.setUsername("小明");
 
         userDao.update(userUpdate);
-
-//        userDao.delete(user);
-
 
     }
 
